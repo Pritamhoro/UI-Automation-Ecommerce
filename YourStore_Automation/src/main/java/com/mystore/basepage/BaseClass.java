@@ -6,7 +6,12 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.BeforeTest;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass 
 {
@@ -27,9 +32,29 @@ public class BaseClass
 		{
 			e.printStackTrace();
 		}
-		catch(IOException e) 
+		catch(IOException e)
 		{
 			e.printStackTrace();
 		}
+		
 	}
+		
+		public void launchBrowser() 
+		{
+			WebDriverManager.chromiumdriver().setup();
+			String browsername=prop.getProperty("browser");
+			
+			if(browsername.contains("Chrome")) 
+			{
+				driver=new ChromeDriver();
+			}
+			else if(browsername.contains("Firefox")) 
+			{
+				driver=new FirefoxDriver();
+			}
+			else if(browsername.contains("Firefox")) 
+			{
+				driver=new InternetExplorerDriver();
+			}
+		}
 }

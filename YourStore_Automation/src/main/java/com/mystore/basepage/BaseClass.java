@@ -19,7 +19,7 @@ public class BaseClass
 		{
 			prop=new Properties();
 			System.out.println("Super constructor invoked");
-			FileInputStream ip=new FileInputStream(System.getProperty("user.dir")+"/YourStore_Automation/Configuration/Config.properties");
+			FileInputStream ip=new FileInputStream(System.getProperty("user.dir")+"/Configuration/Config.properties");
 			prop.load(ip);
 			System.out.println("driver :"+ driver);
 		}
